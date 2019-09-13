@@ -21,7 +21,20 @@ object Main {
   def main(args: Array[String]): Unit = {
     // testWarcLoad
     // exportFeaturesTest
-    exportFeaturesTest
+    //exportFeaturesTest
+    //carlPlay
+  }
+
+
+  def carlPlay = {
+    val cdom = CDOM.fromHTML("""
+    <body>
+        <h1>Header</h1>
+        <p>Paragraph with an <i>Italic</i> section.</p>
+    </body>
+    """)
+    println(cdom)
+    
   }
 
   def exportFeaturesTest = {
@@ -35,7 +48,7 @@ object Main {
       TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
     val data = Util.time{ CleanEval.dataset(fe) }
-    CsvDatasetWriter.write(data, "/Users/tvogels/Desktop/export")
+    CsvDatasetWriter.write(data, "/home/caiau/School/web2text/output")
     println("# Block features")
     fe.blockExtractor.labels.foreach(println)
     println("# Edge features")

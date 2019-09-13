@@ -10,8 +10,7 @@ FLAGS = tf.app.flags.FLAGS
 class Config:
     def __init__(self):
         root = self.Scope('')
-        for k in FLAGS.__dict__['__wrapped']:
-            root[k] = FLAGS.__getattr__(k)
+        
         self.stack = [ root ]
 
     def iteritems(self):
